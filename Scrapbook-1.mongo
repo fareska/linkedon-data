@@ -1,0 +1,16 @@
+//Exercise 1
+db.linkedon.count({
+    salary: {$gt: 25000}
+})
+
+//Exercise 2
+db.linkedon.find({},{firstName:1, salary:1, _id:0}).sort({salary:-1}).limit(6)
+
+//Exercise 3
+db.linkedon.count({
+    
+    $and:[
+        {$or:[{salary:{$gt:7000}},{salary:7000}]},
+        {"currentCompany.name":"Walmart"}
+    ]
+})
